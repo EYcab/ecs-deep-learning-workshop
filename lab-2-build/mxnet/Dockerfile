@@ -7,7 +7,7 @@ RUN apt-get -y install \
   wget \
   build-essential \
   python-dev \
-  python-pip \
+#  python-pip \
   libatlas-base-dev \
   libopencv-dev \
   python-opencv \
@@ -15,11 +15,17 @@ RUN apt-get -y install \
   python-matplotlib \
   python-zmq \
   libzmq-dev \
-  python-setuptools \
+#  python-setuptools \
   libcurl4-openssl-dev \
   openssh-server
 
+RUN wget https://bootstrap.pypa.io/get-pip.py
+
+RUN python get-pip.py
+
 RUN pip install dumb-init
+
+RUN pip install setuptools==33.1.1
 
 RUN pip install awscli
 
